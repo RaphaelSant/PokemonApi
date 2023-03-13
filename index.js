@@ -9,33 +9,46 @@ function buscarPokemon(id) {
         .then(response => response.json())
         .then(pokemon => {
             const nome = document.createElement('p');
-            nome.textContent = 'Nome: ' + pokemon.name;
+            nome.textContent = pokemon.name;
 
             const tipo = document.createElement('p');
             tipo.textContent = 'Tipo: ' + pokemon.types[0].type.name;
 
             const altura = document.createElement('p');
-            altura.textContent = 'Altura: ' + pokemon.height + 'm';
+            altura.textContent = 'Altura: ' + pokemon.height / 10 + ' M';
 
             const peso = document.createElement('p');
             peso.textContent = 'Peso: ' + pokemon.weight + ' Kg';
 
             const imagem = document.createElement('img');
-            path = pokemon.sprites.versions['generation-v']['black-white'].animated.front_default;
-            if(path != null) {
+
+            path = pokemon.sprites.other.dream_world.front_default;
+
+            if (path != null) {
                 imagem.src = path;
             } else {
                 imagem.src = pokemon.sprites.other['official-artwork'].front_default;
             }
 
-            //console.log(pokemon.sprites.other['official-artwork'].front_default);
+            console.log(pokemon.types[0].type.name);
+
+
+            const typePokemonApi = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+            console.log(typePokemonApi);
+
+            fetch(typePokemonApi)
+                .then(response => response.json())
+                .then(poketype => {
+                    const backgroundColor = poketype.color.name;
+                    document.body.style.backgroundColor = `${backgroundColor}`;
+                }).catch(error => console.log(error));
 
             pokemonInfo.innerHTML = '';
+            pokemonInfo.appendChild(imagem);
             pokemonInfo.appendChild(nome);
             pokemonInfo.appendChild(tipo);
             pokemonInfo.appendChild(altura);
             pokemonInfo.appendChild(peso);
-            pokemonInfo.appendChild(imagem);
 
         }).catch(error => pokemonInfo.innerHTML = `Id ou Nome incorreto <br />` + '* ' + id + " *");
 }

@@ -1,12 +1,23 @@
 body {
     font-family: Arial, sans-serif;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
     margin: 0;
     padding: 0;
-    background-color: rgb(209, 209, 0);
+    background-image: url('./assets/Pikachu.png');
+    background-position: 6% 98%;
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-color: #ffca00;
+}
+
+.pikachu_bk {
+    height: 200px;
+    bottom: 150px;
+    left: 150px;
+    position: fixed;
 }
 
 .container {
@@ -23,9 +34,11 @@ form {
 }
 
 input {
+    border: 0;
+    border-radius: 5px;
     font-size: 20px;
     text-align: center;
-    padding: 5px;
+    padding: 10px;
     margin-bottom: 15px;
 }
 
@@ -35,7 +48,7 @@ button {
     background-color: #4CAF50;
     color: #fff;
     border: none;
-    border-radius: 3px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -51,14 +64,16 @@ button:hover {
     max-height: 380px;
     min-height: 380px;
     margin-top: 15px;
-    border-radius: 15px;
 
     font-size: 25px;
     padding: 25px;
 
-    background-color: #fff;
-    
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.bg_eletric {
+    background-color: red;
 }
 
 #pokemon-info p {
@@ -73,6 +88,6 @@ button:hover {
 
 @media (max-width: 480px) {
     .text {
-      font-size: 16px;
+        font-size: 16px;
     }
-  }
+}
