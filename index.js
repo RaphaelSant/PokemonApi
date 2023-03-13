@@ -18,7 +18,7 @@ function buscarPokemon(id) {
             altura.textContent = 'Altura: ' + pokemon.height / 10 + ' M';
 
             const peso = document.createElement('p');
-            peso.textContent = 'Peso: ' + pokemon.weight + ' Kg';
+            peso.textContent = 'Peso: ' + pokemon.weight / 10 + ' Kg';
 
             const imagem = document.createElement('img');
 
