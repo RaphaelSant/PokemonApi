@@ -22,15 +22,16 @@ function buscarPokemon(id) {
 
             const imagem = document.createElement('img');
 
-            path = pokemon.sprites.other.dream_world.front_default;
+            path = pokemon.sprites.other['official-artwork'].front_default;
 
             if (path != null) {
                 imagem.src = path;
             } else {
-                imagem.src = pokemon.sprites.other['official-artwork'].front_default;
+                imagem.src = pokemon.sprites.other.dream_world.front_default;
             }
 
-            console.log(pokemon.types[0].type.name);
+            //console.log(pokemon.sprites.other.dream_world.front_default);
+            console.log(pokemon.sprites.other['official-artwork'].front_default);
 
 
             const typePokemonApi = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
