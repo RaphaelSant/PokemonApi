@@ -3,11 +3,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     margin: 0;
     padding: 0;
     background-image: url('./assets/Pikachu.png');
-    background-position: 6% 98%;
+    background-position: right;
     background-repeat: no-repeat;
     background-size: 30%;
     background-color: #ffca00;
@@ -70,10 +69,12 @@ button:hover {
 
     border-radius: 15px;
     background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(3px);
+    
 }
 
-.bg_eletric {
-    background-color: red;
+form {
+    margin-bottom: 15px;
 }
 
 #pokemon-info p {
@@ -81,9 +82,11 @@ button:hover {
 }
 
 #pokemon-info img {
-    margin-top: 15px;
+    margin-top: -130px;
+    background-color: slategray;
+    border-radius: 50%;
     height: 200px;
-    width: max-content;
+    padding: 10px;
 }
 
 @media (max-width: 480px) {

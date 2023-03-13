@@ -9,10 +9,13 @@ function buscarPokemon(id) {
         .then(response => response.json())
         .then(pokemon => {
             const nome = document.createElement('p');
-            nome.textContent = pokemon.name;
+            const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.substring(1);
+            nome.textContent = pokeName;
 
             const tipo = document.createElement('p');
-            tipo.textContent = 'Tipo: ' + pokemon.types[0].type.name;
+            const pokeType = pokemon.types[0].type.name[0].toUpperCase() + pokemon.types[0].type.name.substring(1);
+            tipo.textContent = 'Tipo: ' + pokeType;
+            console.log(pokeType);
 
             const altura = document.createElement('p');
             altura.textContent = 'Altura: ' + pokemon.height / 10 + ' M';
@@ -21,27 +24,26 @@ function buscarPokemon(id) {
             peso.textContent = 'Peso: ' + pokemon.weight / 10 + ' Kg';
 
             const imagem = document.createElement('img');
-
-            path = pokemon.sprites.other['official-artwork'].front_default;
-
+            const path = pokemon.sprites.other['official-artwork'].front_default;
             if (path != null) {
                 imagem.src = path;
             } else {
                 imagem.src = pokemon.sprites.other.dream_world.front_default;
             }
+            form.style.marginBottom = '130px';
 
             //console.log(pokemon.sprites.other.dream_world.front_default);
             console.log(pokemon.sprites.other['official-artwork'].front_default);
 
 
             const typePokemonApi = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
-            console.log(typePokemonApi);
+            //console.log(typePokemonApi);
 
             fetch(typePokemonApi)
                 .then(response => response.json())
                 .then(poketype => {
                     const backgroundColor = poketype.color.name;
-                    document.body.style.backgroundColor = `${backgroundColor}`;
+                    imagem.style.backgroundColor = `${backgroundColor}`;
                 }).catch(error => console.log(error));
 
             pokemonInfo.innerHTML = '';
