@@ -67,7 +67,7 @@ function buscarPokemon(id) {
             pokeId.style.opacity = '0.1';
             pokeId.style.fontSize = '10rem';
             pokemonInfo.appendChild(pokeId);
-
+            pokemonInfo.style.marginBottom = '25px';
         }).catch(error => teste(error));
 }
 
