@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PokeWorld</title>
+    <title>PokeInfo</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>PokeInfo</h1>
+        <img src="./assets/pokeinfo.png" alt="PokeInfo">
         <p>Digite o ID ou nome do pokemon que deseja consultar!</p>
 
         <form action="GET">
-            <input type="text" id="pokemon-id" placeholder="Nome ou ID">
+            <input type="text" id="pokemon-id" placeholder="Nome ou ID" required>
             <button type="submit" id="buscar">Buscar</button>
         </form>
 
